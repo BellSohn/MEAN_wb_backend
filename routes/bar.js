@@ -1,13 +1,11 @@
 	'use strict'
 
 var express = require('express');
-var BarController = require('../controllers/bar'); /*asi importo el objeto controlador*/
+var BarController = require('../controllers/bar'); /*import the controler object*/
 
-var router = express.Router(); /*asi cargo el servicio de la ruta,que tiene muchos métodos*/
+var router = express.Router(); /*load the route service,wich contains lost of methods*/
 
-/*esta variable y la otra se necesitan para cargar archivos,despues
-hay que crear una carpeta en el proyecto,despues hay que 
-incluirlo como parametro en el router.post*/
+/*this variable and the other,are needed to load the files.After we create a folder in the project,after we include as parameter in router.post*/
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart({uploadDir:'./uploads'});
 

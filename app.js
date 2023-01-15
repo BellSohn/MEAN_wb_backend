@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-//cargar archivos de rutas
+//load the routes files
 var bar_routes = require('./routes/bar');
 
 //middlewares
@@ -25,25 +25,8 @@ app.use((req, res, next) => {
 });
 
 
-//rutas
+//routes
 app.use('/api',bar_routes);
-
-/*esta rutas valen como prueba 
-app.get('/',(req,res)=>{
-	res.status(200).send("<h1>Pagina de inicio de la ruta '/'</h1>");
-});
-	
-app.post('/datos/:id',(req,res)=>{
-
-	console.log(req.body.nombre);
-	console.log(req.query.web);
-	console.log(req.params.id);
-
-
-	  res.status(200).send('Mensaje de la ruta /datos');
-});
-*/
-
 
 
 

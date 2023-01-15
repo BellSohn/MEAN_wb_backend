@@ -116,13 +116,12 @@ var controller = {
 
 
 	uploadImage:function(req,res){
-		/*recogemos el id del bar sobre la que se va a guardar la imagen*/
+		/*pick up the bar id upon which we store the image*/
 		var barId = req.params.id;
 		var fileName = "Image not uploaded";
 
-		if(req.files){
+		if(req.files){			
 			
-			/*console.log(req.files);
 			return res.status(200).send({files:req.files});*/
 
 			var filePath = req.files.image.path;
@@ -135,18 +134,18 @@ var controller = {
 
 				Bar.findByIdAndUpdate(barId,{image:fileName},{new:true},(err,barUpdated)=>{
 
-			if(err) return res.status(200).send({message:'The image was not uploded'});
-			if(!barUpdated) return res.status(404).send({message:'the image doesn´t exists'});
+				if(err) return res.status(200).send({message:'The image was not uploded'});
+				if(!barUpdated) return res.status(404).send({message:'the image doesn´t exists'});
 
 				return res.status(200).send({bar:barUpdated});
 
-				});
+			});
 
 			}else{
-					fs.unlink(filePath,err =>{
-						return res.status(200).send({message:'imagen extension is not valid'});
-					});	
-			}
+				fs.unlink(filePath,err =>{
+				return res.status(200).send({message:'imagen extension is not valid'});
+			});	
+		}
 
 		}else{
 			return res.status(200).send({message:fileName});

@@ -1,7 +1,7 @@
 'use strict'
 
-var mongoose = require('mongoose'); /*mongoose se encarga de trabajar con los modelos*/
-var Schema = mongoose.Schema;/*definimos el esquema de un modelo*/
+var mongoose = require('mongoose'); /*mongoose deal with the models*/
+var Schema = mongoose.Schema;/*define the model schema*/
 
 var BarSchema = Schema({
 	name:String,
